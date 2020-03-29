@@ -1,0 +1,60 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.xti.flowable</groupId>
+	<artifactId>flowable-modeler-maven-plugin-reactor</artifactId>
+	<packaging>pom</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<url>https://www.xt-i.com</url>
+
+	<modules>
+		<module>flowable-modeler-maven-plugin</module>
+		<module>flowable-modeler-maven-plugin-example</module>
+	</modules>
+
+	<repositories>
+	  <repository>
+	    <id>xti-maven-repository</id>
+	    <url>http://repo.maven.xt-i.cloud</url>
+	  </repository>
+	</repositories>
+
+	<distributionManagement>
+		<site>
+			<id>xti-maven-site</id>
+			<name>xti-maven-site</name>
+			<url>scp://repo.maven.xt-i.cloud/usr/local/maven/sites</url>
+		</site>
+		<repository>
+			<id>xti-maven-repo-releases</id>
+			<name>xti-maven-repo-releases</name>
+			<url>scp://repo.maven.xt-i.cloud/usr/local/maven/releases</url>
+			<layout>default</layout>
+		</repository>
+		<snapshotRepository>
+			<id>xti-maven-repo-snapshots</id>
+			<name>xti-maven-repo-snapshots</name>
+			<url>scp://repo.maven.xt-i.cloud/usr/local/maven/snapshots</url>
+			<layout>default</layout>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<build>
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-ssh</artifactId>
+				<version>2.10</version>
+			</extension>
+		</extensions>
+
+	</build>
+
+	<scm>
+		<connection>scm:git:ssh://git@bitbucket.org/vanrogu/flowable-modeler-maven-plugin.git</connection>
+		<developerConnection>scm:git:ssh://git@bitbucket.org/vanrogu/flowable-modeler-maven-plugin.git</developerConnection>
+		<url>https://bitbucket.org/flowable-modeler-maven-plugin</url>
+	</scm>
+
+</project>

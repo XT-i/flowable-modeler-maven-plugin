@@ -157,10 +157,4 @@
 		</plugins>
 	</reporting>
 
-	<scm>
-		<connection>scm:git:ssh://git@bitbucket.org/vanrogu/flowable-modeler-maven-plugin.git</connection>
-		<developerConnection>scm:git:ssh://git@bitbucket.org/vanrogu/flowable-modeler-maven-plugin.git</developerConnection>
-		<url>https://bitbucket.org/flowable-modeler-maven-plugin</url>
-	</scm>
-
 </project>

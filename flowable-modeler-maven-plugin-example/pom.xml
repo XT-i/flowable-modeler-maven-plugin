@@ -113,7 +113,14 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			
-			
+			<plugin>
+			  <groupId>org.apache.maven.plugins</groupId>
+			  <artifactId>maven-deploy-plugin</artifactId>
+			  <configuration>
+			    <skip>true</skip>
+			  </configuration>
+			</plugin>
+
 			<plugin>
 				<groupId>com.xti.flowable</groupId>
 				<artifactId>flowable-modeler-maven-plugin</artifactId>

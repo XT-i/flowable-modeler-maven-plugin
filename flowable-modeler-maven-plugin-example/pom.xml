@@ -16,7 +16,7 @@
 	<pluginRepositories>
 		  <pluginRepository>
 			<id>xti-maven-plugin-repository-releases</id>
-			<url>http://repo.maven.xt-i.cloud/releases</url>
+			<url>http://maven.xt-i.cloud/releases</url>
 			<releases>
 				<enabled>true</enabled>
          	</releases>
@@ -26,7 +26,7 @@
 		</pluginRepository>
 		<pluginRepository>
 			<id>xti-maven-plugin-repository-snapshots</id>
-			<url>http://repo.maven.xt-i.cloud/snapshots</url>
+			<url>http://maven.xt-i.cloud/snapshots</url>
 			<releases>
 				<enabled>true</enabled>
          	</releases>

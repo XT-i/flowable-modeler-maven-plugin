@@ -42,7 +42,7 @@ NOTE: There currently isn't a *release*, so you'll have to work with the *snapsh
 <pluginRepositories>
 	  <pluginRepository>
 		<id>xti-maven-plugin-repository-releases</id>
-		<url>http://repo.maven.xt-i.cloud/releases</url>
+		<url>http://maven.xt-i.cloud/releases</url>
 		<releases>
 			<enabled>true</enabled>
 		</releases>
@@ -52,7 +52,7 @@ NOTE: There currently isn't a *release*, so you'll have to work with the *snapsh
 	</pluginRepository>
 	<pluginRepository>
 		<id>xti-maven-plugin-repository-snapshots</id>
-		<url>http://repo.maven.xt-i.cloud/snapshots</url>
+		<url>http://maven.xt-i.cloud/snapshots</url>
 		<releases>
 			<enabled>true</enabled>
 		</releases>
@@ -143,33 +143,45 @@ Refer to the Maven documentation (http://maven.apache.org/examples/injecting-pro
 
 ```xml
 <build>
+		<pluginManagement>
+			<plugins>
+			
+				<plugin>
+					<groupId>com.xti.flowable</groupId>
+					<artifactId>flowable-modeler-maven-plugin</artifactId>
+					<version>0.0.1-SNAPSHOT</version>
+						<configuration>
+							<url>http://localhost:8080</url> <!-- URL on which your Flowable Modeler instance runs -->
+							<username>admin</username> <!-- USERNAME to login on your Flowable Modeler instance -->
+							<password>test</password> <!-- PASSWORD to login on your Flowable Modeler instance -->
+							<path>src/main/resources</path><!-- PATH where model files in your project reside  -->
+							<types><!-- TYPES you want the plugin to handle - BPMN, CMMN, DMN and FORM -->
+								<type>BPMN</type>
+								<type>CMMN</type>
+								<type>DMN</type>
+								<type>FORM</type>
+							</types>
+							<bpmnFileExtension>.bpmn20.xml</bpmnFileExtension> <!-- FILE EXTENSION to use for BPMN files (".bpmn20.xml", ".bpmn.xml", ".bpmn", ...) -->
+							<cmmnFileExtension>.cmmn.xml</cmmnFileExtension> <!-- FILE EXTENSION to use for CMMN files (".cmmn.xml", ".cmmn", ...) -->
+							<dmnFileExtension>.dmn</dmnFileExtension><!-- FILE EXTENSION to use for DMN files (".dmn", ".dmn.xml", ...) -->
+							<formFileExtension>.form</formFileExtension><!-- FILE EXTENSION to use for FORM files -->
+							<fileNameStrategyOption>NAME</fileNameStrategyOption> <!-- NAME is compliant with Flowable Modeler download names, KEY is an alternative -->
+						</configuration>
+		           </plugin>
+		           
+			</plugins>
+			
+		</pluginManagement>
+
 	<plugins>
-	
+		
 		<plugin>
 			<groupId>com.xti.flowable</groupId>
 			<artifactId>flowable-modeler-maven-plugin</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
 			<executions>
 				<execution>
 					<id>execution-upon-generate-resources</id>
 					<phase>generate-resources</phase>
-					<configuration>
-						<url>http://localhost:8080</url> <!-- URL on which your Flowable Modeler instance runs -->
-						<username>admin</username> <!-- USERNAME to login with -->
-						<password>test</password> <!-- PASSWORD to login with -->
-						<path>src/main/resources</path><!-- PATH where model files in your project reside  -->
-						<types><!-- TYPES you want the plugin to handle -->
-							<type>BPMN</type>
-							<type>CMMN</type>
-							<type>DMN</type>
-							<type>FORM</type>
-						</types>
-						<bpmnFileExtension>.bpmn20.xml</bpmnFileExtension> <!-- FILE EXTENSION to use for BPMN files -->
-						<cmmnFileExtension>.cmmn.xml</cmmnFileExtension> <!-- FILE EXTENSION to use for CMMN files -->
-						<dmnFileExtension>.dmn</dmnFileExtension><!-- FILE EXTENSION to use for DMN files -->
-						<formFileExtension>.form</formFileExtension><!-- FILE EXTENSION to use for FORM files -->
-						<fileNameStrategyOption>NAME</fileNameStrategyOption><!-- NAME is compliant with Flowable Modeler download names, KEY is an alternative -->
-					</configuration>
 					<goals>
 						<goal>download-models</goal>
 					</goals>
@@ -177,7 +189,7 @@ Refer to the Maven documentation (http://maven.apache.org/examples/injecting-pro
 			</executions>
         </plugin>
         
-    </plugins>
+	</plugins>
 </build>
 ```
 	

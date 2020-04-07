@@ -1,0 +1,166 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.xti.flowable</groupId>
+	<artifactId>flowable-modeler-maven-plugin</artifactId>
+	<packaging>maven-plugin</packaging>
+	<version>0.1.0</version>
+
+	<url>https://www.xt-i.com</url>
+
+	<properties>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven-plugin-api.version>3.6.3</maven-plugin-api.version>
+		<maven-plugin-annotations.version>3.6.0</maven-plugin-annotations.version>
+		<maven-project.version>2.2.1</maven-project.version>
+		<maven-plugin-plugin.version>3.6.0</maven-plugin-plugin.version>
+		<maven-site-plugin.version>3.9.0</maven-site-plugin.version>
+		<unirest.version>1.4.9</unirest.version>
+		<jsonpath.version>2.4.0</jsonpath.version>
+		<jackson.version>2.10.2</jackson.version>
+		<junit.version>5.6.1</junit.version>
+		<surefire.version>1.1.0</surefire.version>
+	</properties>
+
+	<repositories>
+	  <repository>
+	    <id>xti-maven-repository</id>
+	    <url>http://maven.xt-i.cloud</url>
+	  </repository>
+	</repositories>
+
+	<distributionManagement>
+		<site>
+			<id>xti-maven-site</id>
+			<name>xti-maven-site</name>
+			<url>scp://maven.xt-i.cloud/usr/local/maven/sites</url>
+		</site>
+		<repository>
+			<id>xti-maven-repo-releases</id>
+			<name>xti-maven-repo-releases</name>
+			<url>scp://maven.xt-i.cloud/usr/local/maven/releases</url>
+			<layout>default</layout>
+		</repository>
+		<snapshotRepository>
+			<id>xti-maven-repo-snapshots</id>
+			<name>xti-maven-repo-snapshots</name>
+			<url>scp://maven.xt-i.cloud/usr/local/maven/snapshots</url>
+			<layout>default</layout>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<dependencies>
+	
+		<!-- MAVEN PLUGIN dependencies  -->
+		<dependency>
+			<groupId>org.apache.maven</groupId>
+			<artifactId>maven-plugin-api</artifactId>
+			<version>${maven-plugin-api.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven.plugin-tools</groupId>
+			<artifactId>maven-plugin-annotations</artifactId>
+			<version>${maven-plugin-annotations.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven</groupId>
+			<artifactId>maven-project</artifactId>
+			<version>${maven-project.version}</version>
+		</dependency>
+		
+		<!-- REST and JSON support -->
+		<dependency>
+			<groupId>com.mashape.unirest</groupId>
+			<artifactId>unirest-java</artifactId>
+			<version>${unirest.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.jayway.jsonpath</groupId>
+			<artifactId>json-path</artifactId>
+			<version>${jsonpath.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+
+		<!-- TEST dependencies  -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-plugin-plugin</artifactId>
+					<version>${maven-plugin-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-site-plugin</artifactId>
+					<version>${maven-site-plugin.version}</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-ssh</artifactId>
+				<version>2.10</version>
+			</extension>
+		</extensions>
+
+		<!-- run with JUNIT 5 -->
+		<plugins>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.19.1</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.junit.platform</groupId>
+						<artifactId>junit-platform-surefire-provider</artifactId>
+						<version>${surefire.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-plugin-plugin</artifactId>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>report</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+		</plugins>
+	</reporting>
+
+	<scm>
+		<connection>scm:git:ssh://git@bitbucket.org/vanrogu/flowable-modeler-maven-plugin.git</connection>
+		<developerConnection>scm:git:ssh://git@bitbucket.org/vanrogu/flowable-modeler-maven-plugin.git</developerConnection>
+		<url>https://bitbucket.org/flowable-modeler-maven-plugin</url>
+	</scm>
+
+</project>

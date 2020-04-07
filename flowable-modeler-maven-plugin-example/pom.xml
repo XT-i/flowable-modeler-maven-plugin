@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.4.RELEASE</version>
+		<relativePath/>
+	</parent>
+	<groupId>com.xti.flowable</groupId>
+	<artifactId>flowable-modeler-maven-plugin-example-project</artifactId>
+	<version>0.1.0</version>
+
+	<!-- XTi maven repositories -->
+	<pluginRepositories>
+		  <pluginRepository>
+			<id>xti-maven-plugin-repository-releases</id>
+			<url>http://maven.xt-i.cloud/releases</url>
+			<releases>
+				<enabled>true</enabled>
+         	</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+		<pluginRepository>
+			<id>xti-maven-plugin-repository-snapshots</id>
+			<url>http://maven.xt-i.cloud/snapshots</url>
+			<releases>
+				<enabled>true</enabled>
+         	</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<dependencies>
+	
+		<!-- Spring Boot Starter -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!-- Flowable Starter -->
+		<dependency>
+			<groupId>org.flowable</groupId>
+			<artifactId>flowable-spring-boot-starter</artifactId>
+			<version>6.5.0</version>
+		</dependency>
+
+		<!-- H2 Database -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		
+		<!-- Testing -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+				
+	</dependencies>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>com.xti.flowable</groupId>
+					<artifactId>flowable-modeler-maven-plugin</artifactId>
+					<version>0.1.0</version>
+						<configuration>
+							<url>http://localhost:8080</url> <!-- URL on which your Flowable Modeler instance runs -->
+							<username>admin</username> <!-- USERNAME to login on your Flowable Modeler instance -->
+							<password>test</password> <!-- PASSWORD to login on your Flowable Modeler instance -->
+							<path>src/main/resources</path><!-- PATH where model files in your project reside  -->
+							<types><!-- TYPES you want the plugin to handle - BPMN, CMMN, DMN and FORM -->
+								<type>BPMN</type>
+								<type>CMMN</type>
+								<type>DMN</type>
+								<type>FORM</type>
+							</types>
+							<bpmnFileExtension>.bpmn20.xml</bpmnFileExtension> <!-- FILE EXTENSION to use for BPMN files (".bpmn20.xml", ".bpmn.xml", ".bpmn", ...) -->
+							<cmmnFileExtension>.cmmn.xml</cmmnFileExtension> <!-- FILE EXTENSION to use for CMMN files (".cmmn.xml", ".cmmn", ...) -->
+							<dmnFileExtension>.dmn</dmnFileExtension><!-- FILE EXTENSION to use for DMN files (".dmn", ".dmn.xml", ...) -->
+							<formFileExtension>.form</formFileExtension><!-- FILE EXTENSION to use for FORM files -->
+							<fileNameStrategyOption>NAME</fileNameStrategyOption> <!-- NAME is compliant with Flowable Modeler download names, KEY is an alternative -->
+						</configuration>
+		           </plugin>
+			</plugins>
+			
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			
+			<plugin>
+			  <groupId>org.apache.maven.plugins</groupId>
+			  <artifactId>maven-deploy-plugin</artifactId>
+			  <configuration>
+			    <skip>true</skip>
+			  </configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>com.xti.flowable</groupId>
+				<artifactId>flowable-modeler-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>execution-upon-generate-resources</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>download-models</goal>
+						</goals>
+			          </execution>
+				</executions>
+            </plugin>
+            
+		</plugins>
+	</build>
+
+</project>

@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.xti.flowable</groupId>
 	<artifactId>flowable-modeler-maven-plugin-example-project</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1.0</version>
 
 	<!-- XTi maven repositories -->
 	<pluginRepositories>
@@ -85,7 +85,7 @@
 				<plugin>
 					<groupId>com.xti.flowable</groupId>
 					<artifactId>flowable-modeler-maven-plugin</artifactId>
-					<version>0.0.1-SNAPSHOT</version>
+					<version>0.1.0</version>
 						<configuration>
 							<url>http://localhost:8080</url> <!-- URL on which your Flowable Modeler instance runs -->
 							<username>admin</username> <!-- USERNAME to login on your Flowable Modeler instance -->

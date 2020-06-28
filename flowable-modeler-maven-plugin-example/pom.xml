@@ -14,22 +14,12 @@
 
 	<!-- XTi maven repositories -->
 	<pluginRepositories>
-		  <pluginRepository>
-			<id>xti-maven-plugin-repository-releases</id>
-			<url>http://maven.xt-i.cloud/releases</url>
-			<releases>
-				<enabled>true</enabled>
-         	</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</pluginRepository>
 		<pluginRepository>
-			<id>xti-maven-plugin-repository-snapshots</id>
-			<url>http://maven.xt-i.cloud/snapshots</url>
+		    <id>io.cloudrepo.xti.opensource</id>
+		    <url>https://xti.mycloudrepo.io/repositories/opensource</url>
 			<releases>
 				<enabled>true</enabled>
-         	</releases>
+	         	</releases>
 			<snapshots>
 				<enabled>true</enabled>
 				<updatePolicy>always</updatePolicy>

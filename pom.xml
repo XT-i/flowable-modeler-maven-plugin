@@ -15,39 +15,20 @@
 
 	<repositories>
 	  <repository>
-	    <id>xti-maven-repository</id>
-	    <url>http://maven.xt-i.cloud</url>
+	    <id>io.cloudrepo.xti.opensource</id>
+	    <url>https://xti.mycloudrepo.io/repositories/opensource</url>
 	  </repository>
 	</repositories>
 
 	<distributionManagement>
-		<site>
-			<id>xti-maven-site</id>
-			<name>xti-maven-site</name>
-			<url>scp://maven.xt-i.cloud/usr/local/maven/sites</url>
-		</site>
 		<repository>
-			<id>xti-maven-repo-releases</id>
-			<name>xti-maven-repo-releases</name>
-			<url>scp://maven.xt-i.cloud/usr/local/maven/releases</url>
-			<layout>default</layout>
+			<id>io.cloudrepo.xti.opensource</id>
+			<name>XTi opensource maven repo</name>
+			<url>https://xti.mycloudrepo.io/repositories/opensource</url>
 		</repository>
-		<snapshotRepository>
-			<id>xti-maven-repo-snapshots</id>
-			<name>xti-maven-repo-snapshots</name>
-			<url>scp://maven.xt-i.cloud/usr/local/maven/snapshots</url>
-			<layout>default</layout>
-		</snapshotRepository>
 	</distributionManagement>
 
 	<build>
-		<extensions>
-			<extension>
-				<groupId>org.apache.maven.wagon</groupId>
-				<artifactId>wagon-ssh</artifactId>
-				<version>2.10</version>
-			</extension>
-		</extensions>
 		<plugins>
 			<plugin>
 			  <groupId>org.apache.maven.plugins</groupId>

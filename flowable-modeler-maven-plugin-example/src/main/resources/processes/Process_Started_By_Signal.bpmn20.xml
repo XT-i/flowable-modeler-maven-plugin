@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.flowable.org/processdef">
+  <signal id="signal.start" name="Signal To Start Process" flowable:scope="global"></signal>
+  <process id="process-started-by-signal" name="Process Started By Signal" isExecutable="true">
+    <endEvent id="sid-008E7B53-5BB5-49C7-95D8-FD1BDDEBA349"></endEvent>
+    <sequenceFlow id="sid-D7CE4556-F6FB-4C18-B917-900877DC530E" sourceRef="sid-D1EB63B2-3137-4A4C-B9C6-C005B5D04B50" targetRef="sid-008E7B53-5BB5-49C7-95D8-FD1BDDEBA349"></sequenceFlow>
+    <startEvent id="sid-D1EB63B2-3137-4A4C-B9C6-C005B5D04B50" isInterrupting="true">
+      <signalEventDefinition signalRef="signal.start"></signalEventDefinition>
+    </startEvent>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_process-started-by-signal">
+    <bpmndi:BPMNPlane bpmnElement="process-started-by-signal" id="BPMNPlane_process-started-by-signal">
+      <bpmndi:BPMNShape bpmnElement="sid-008E7B53-5BB5-49C7-95D8-FD1BDDEBA349" id="BPMNShape_sid-008E7B53-5BB5-49C7-95D8-FD1BDDEBA349">
+        <omgdc:Bounds height="28.0" width="28.0" x="225.0" y="151.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-D1EB63B2-3137-4A4C-B9C6-C005B5D04B50" id="BPMNShape_sid-D1EB63B2-3137-4A4C-B9C6-C005B5D04B50">
+        <omgdc:Bounds height="30.0" width="30.0" x="90.25" y="150.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-D7CE4556-F6FB-4C18-B917-900877DC530E" id="BPMNEdge_sid-D7CE4556-F6FB-4C18-B917-900877DC530E">
+        <omgdi:waypoint x="120.6918022019458" y="165.0"></omgdi:waypoint>
+        <omgdi:waypoint x="225.0" y="165.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

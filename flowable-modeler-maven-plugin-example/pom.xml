@@ -10,26 +10,16 @@
 	</parent>
 	<groupId>com.xti.flowable</groupId>
 	<artifactId>flowable-modeler-maven-plugin-example-project</artifactId>
-	<version>0.1.0</version>
+	<version>0.2.0-SNAPSHOT</version>
 
 	<!-- XTi maven repositories -->
 	<pluginRepositories>
 		  <pluginRepository>
-			<id>xti-maven-plugin-repository-releases</id>
-			<url>http://maven.xt-i.cloud/releases</url>
+			<id>io.cloudrepo.xti.opensource</id>
+			<url>https://xti.mycloudrepo.io/public/repositories/opensource</url>
 			<releases>
 				<enabled>true</enabled>
-         	</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</pluginRepository>
-		<pluginRepository>
-			<id>xti-maven-plugin-repository-snapshots</id>
-			<url>http://maven.xt-i.cloud/snapshots</url>
-			<releases>
-				<enabled>true</enabled>
-         	</releases>
+	         	</releases>
 			<snapshots>
 				<enabled>true</enabled>
 				<updatePolicy>always</updatePolicy>
@@ -85,7 +75,7 @@
 				<plugin>
 					<groupId>com.xti.flowable</groupId>
 					<artifactId>flowable-modeler-maven-plugin</artifactId>
-					<version>0.1.0</version>
+					<version>0.2.0-SNAPSHOT</version>
 						<configuration>
 							<url>http://localhost:8080</url> <!-- URL on which your Flowable Modeler instance runs -->
 							<username>admin</username> <!-- USERNAME to login on your Flowable Modeler instance -->

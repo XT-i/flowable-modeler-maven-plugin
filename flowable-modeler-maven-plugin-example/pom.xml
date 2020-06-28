@@ -14,9 +14,9 @@
 
 	<!-- XTi maven repositories -->
 	<pluginRepositories>
-		<pluginRepository>
-		    <id>io.cloudrepo.xti.opensource</id>
-		    <url>https://xti.mycloudrepo.io/repositories/opensource</url>
+		  <pluginRepository>
+			<id>io.cloudrepo.xti.opensource</id>
+			<url>https://xti.mycloudrepo.io/public/repositories/opensource</url>
 			<releases>
 				<enabled>true</enabled>
 	         	</releases>

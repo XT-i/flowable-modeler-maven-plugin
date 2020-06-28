@@ -14,16 +14,17 @@
 	</modules>
 
 	<repositories>
-	  <repository>
-	    <id>io.cloudrepo.xti.opensource</id>
-	    <url>https://xti.mycloudrepo.io/repositories/opensource</url>
-	  </repository>
+		<repository>
+			<id>io.cloudrepo.xti.opensource</id>
+			<url>https://xti.mycloudrepo.io/public/repositories/opensource</url>
+			<releases/>
+		</repository>
 	</repositories>
 
 	<distributionManagement>
 		<repository>
 			<id>io.cloudrepo.xti.opensource</id>
-			<name>XTi opensource maven repo</name>
+			<name>XTi Open Source Maven Repo</name>
 			<url>https://xti.mycloudrepo.io/repositories/opensource</url>
 		</repository>
 	</distributionManagement>

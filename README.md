@@ -39,29 +39,19 @@ NOTE: There currently isn't a *release*, so you'll have to work with the *snapsh
 
 
 ```xml
-<pluginRepositories>
-	  <pluginRepository>
-		<id>xti-maven-plugin-repository-releases</id>
-		<url>http://maven.xt-i.cloud/releases</url>
-		<releases>
-			<enabled>true</enabled>
-		</releases>
-		<snapshots>
-			<enabled>false</enabled>
-		</snapshots>
-	</pluginRepository>
-	<pluginRepository>
-		<id>xti-maven-plugin-repository-snapshots</id>
-		<url>http://maven.xt-i.cloud/snapshots</url>
-		<releases>
-			<enabled>true</enabled>
-		</releases>
-		<snapshots>
-			<enabled>true</enabled>
-			<updatePolicy>always</updatePolicy>
-		</snapshots>
-	</pluginRepository>
-</pluginRepositories>
+	<pluginRepositories>
+		  <pluginRepository>
+			<id>io.cloudrepo.xti.opensource</id>
+			<url>https://xti.mycloudrepo.io/public/repositories/opensource</url>
+			<releases>
+				<enabled>true</enabled>
+	         	</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
 ```
 
 ### Enabling the plugin in your project

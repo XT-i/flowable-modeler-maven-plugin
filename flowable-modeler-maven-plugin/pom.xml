@@ -18,7 +18,7 @@
 		<maven-site-plugin.version>3.9.0</maven-site-plugin.version>
 		<unirest.version>1.4.9</unirest.version>
 		<jsonpath.version>2.4.0</jsonpath.version>
-		<jackson.version>2.10.2</jackson.version>
+		<jackson.version>2.12.6.1</jackson.version>
 		<junit.version>5.6.1</junit.version>
 		<surefire.version>1.1.0</surefire.version>
 	</properties>
